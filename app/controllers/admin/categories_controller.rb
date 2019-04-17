@@ -1,5 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
+  # before_filter :authorize #if this were uncommented, only authorized users  see the action of this controller
+
+
   def index
     @categories = Category.order(id: :desc).all
   end
