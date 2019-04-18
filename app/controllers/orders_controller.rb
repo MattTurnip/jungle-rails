@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+
+
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
@@ -53,6 +55,7 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    OrderMailer.order_confirm_email(order).deliver_later
     order
   end
 
