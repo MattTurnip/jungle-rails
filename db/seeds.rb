@@ -21,6 +21,14 @@ end
 
 # Let's do this ...
 
+## USER
+# cat1.users.create!({
+#   name: 'Test',
+#   email: 'test@test.com',
+#   password_digest: 'test'
+# })
+
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
