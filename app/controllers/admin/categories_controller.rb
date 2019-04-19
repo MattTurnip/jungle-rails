@@ -1,5 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-
+class Admin::CategoriesController < Admin::AuthController
   # before_filter :authorize #if this were uncommented, only authorized users  see the action of this controller
 
 
