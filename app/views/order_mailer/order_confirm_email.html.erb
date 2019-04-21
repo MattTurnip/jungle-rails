@@ -7,6 +7,14 @@
     <h1>Hi <%= @order.email %></h1>
     <p>
       Your order at Jungle.com has been processed!
+    </p>
+      <ul>
+        <% @order.line_items.each do |item| %>
+          <li><%= item.quantity %> x <%= item.product.name%></li>
+        <% end %>
+      </ul>
+    <p>
+      Your Total: $<%= @order.total_cents / 100.0 %>
       Have a great day!
     </p>
   </body>

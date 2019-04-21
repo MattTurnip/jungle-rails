@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :categories, except: [:edit, :update, :show, :destroy]
   end
 
+  resources :products do
+    resources :reviews, only: [:create, :destroy]
+  end
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

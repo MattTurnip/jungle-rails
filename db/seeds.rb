@@ -37,6 +37,22 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+user1 = User.create! ({
+  name: 'Homer', 
+  email: 'test@test.com', 
+  password_digest: "testpassword"
+})
+user2 = User.create! ({
+  name: 'Bart', 
+  email: 'test2@test.com', 
+  password_digest: "testpassword"
+})
+user3 = User.create! ({
+  name: 'Lisa', 
+  email: 'test3@test.com', 
+  password_digest: "testpassword"
+})
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -47,7 +63,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 0,
+  quantity: 11,
   price: 64.99
 })
 
@@ -55,7 +71,7 @@ cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
-  quantity: 18,
+  quantity: 0,
   price: 124.99
 })
 
@@ -63,7 +79,7 @@ cat1.products.create!({
   name:  'Hipster Hat',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
-  quantity: 4,
+  quantity: 0,
   price: 34.49
 })
 
@@ -71,7 +87,7 @@ cat1.products.create!({
   name:  'Hipster Socks',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
-  quantity: 8,
+  quantity: 0,
   price: 25.00
 })
 
@@ -142,3 +158,28 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+# REVIEWS
+
+
+Review.create!({
+  product_id: 1,
+  user_id: user1.id,
+  description: "This product is really bad. It's only saving grace is that it hides my pit stains.",
+  rating: 1
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: user2.id,
+  description: "A general shirt. Right up my alley",
+  rating: 5
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: user3.id,
+  description: "I like this shirt, but I stained it.",
+  rating: 3
+})
+

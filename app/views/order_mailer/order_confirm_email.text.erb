@@ -1,4 +1,10 @@
 Hi, <%= @order.email %>
 ===============================================
 Your order at Jungle.com has been processed!
+
+        <% @order.line_items.each do |item| %>
+        <%= item.quantity %> x <%= item.product.name%>
+        <% end %>
+        Your Total: $<%= @order.total_cents / 100.0 %>
+
 Have a great day!
