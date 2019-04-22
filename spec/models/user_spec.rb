@@ -46,4 +46,13 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+
+  describe '.authenticate_with_credentials'do
+  
+  it 'should be valid if existing user' do
+    subject.authenticate_with_credentials
+    expect(subject).to
+
+  end
 end
