@@ -50,9 +50,14 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials'do
   
-  it 'should be valid if existing user' do
-    subject.authenticate_with_credentials
-    expect(subject).to
+  it 'is not valid when passed non-existant email' do
+    expect(User.authenticate_with_credentials("fake@email.com", "badpassword")).to be_nil
+  end
+  
+  it 'is valid when passed existing email and password' do
+    subject.save
+    expect(User.authenticate_with_credentials("bdfurns@email.com", "password")).to_not be_nil
+  end
 
   end
 end
