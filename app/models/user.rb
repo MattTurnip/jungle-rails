@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
             :uniqueness => { :case_sensitive => false }
 
 
-  def authenticate_with_credentials(email, password)
-    @user = User.find_by_email(email: email)
-    if @user && user.authenticate(password)
+  def self.authenticate_with_credentials(email, password)
+    @user = User.find_by_email(email)
+    if @user && @user.authenticate(password)
       @user
     else
       nil
