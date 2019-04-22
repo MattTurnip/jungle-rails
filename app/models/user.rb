@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
   validates :email, :presence => true, 
             :uniqueness => { :case_sensitive => false }
-  # validates :password_confirmation, :presence => true, on: :create
-  # validates :password, confirmation: true, :presence => true, on: :create
+
+
+  def authenticate_with_credentials(email, password)
+    @user = User.find_by_email(email: email)
+    if @user && user.authenticate(password)
+    session[:user_id] = @user.user_id
+  end
+
 end

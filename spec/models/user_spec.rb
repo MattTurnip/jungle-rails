@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
                       )
   }
   
-  describe 'User Validations' do
+  describe 'Validations' do
 
     it 'is not valid without a name' do
       subject.name = nil
