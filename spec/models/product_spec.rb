@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  test_category = Category.new({id: 1, name: "Hot Dog Accessories"})
+  test_category = Category.create({name: "Hot Dog Accessories"})
   subject { Product.new(
                         name: 'Hot Dog', 
-                        price_cents: 49.95, 
+                        price: 49.95, 
                         quantity: 45,
-                        category_id: test_category.id
+                        category: test_category
                         )}  
   
   describe 'Validations' do
-    
+
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
     end
