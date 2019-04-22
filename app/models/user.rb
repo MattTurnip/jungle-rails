@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :reviews
+
+  before_save { self.email.downcase! }
   
   has_secure_password
   validates :password, length: { minimum: 6 }, on: :create
