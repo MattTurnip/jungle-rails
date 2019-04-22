@@ -7,7 +7,8 @@ RSpec.describe Product, type: :model do
                         price: 49.95, 
                         quantity: 45,
                         category: test_category
-                        )}  
+                        )
+  }  
   
   describe 'Validations' do
 
