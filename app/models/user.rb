@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
   def authenticate_with_credentials(email, password)
     @user = User.find_by_email(email: email)
     if @user && user.authenticate(password)
-    session[:user_id] = @user.user_id
+      @user
+    else
+      nil
+    end
   end
 
 end

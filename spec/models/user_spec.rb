@@ -45,11 +45,5 @@ RSpec.describe User, type: :model do
                           )
       expect(subject).to_not be_valid
     end
-
-
-
-
-  
-
   end
 end
