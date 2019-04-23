@@ -28,6 +28,8 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     expect(page).to have_css('.products-show .page-header h1')
     title = page.find('.products-show .page-header h1')
     expect(title.text).to include(product.name)
+    sleep 2
+    save_screenshot
   end
 
 end
